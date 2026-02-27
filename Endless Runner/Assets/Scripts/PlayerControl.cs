@@ -11,9 +11,11 @@ public class PlayerControl : MonoBehaviour
     public float duration;
     public float jumpStrength;
     bool canJump;
+    public int health;
     // Start is called before the first frame update
     void Start()
     {
+        health = 3;
         startPosition = new Vector3(0, 1.25f, -1);
     }
 
@@ -54,9 +56,19 @@ public class PlayerControl : MonoBehaviour
 
         targetPosition = new Vector3(targetPosition.x, transform.position.y, transform.position.z);
         transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, duration);
+
     }
     private void OnCollisionEnter(Collision collision)
     {
         canJump = true;
+        health -= 1;
+
+        if(!collision.gameObject.CompareTag("Ground"))
+        {
+            if (health <= 0)
+            {
+                Destroy(this.gameObject);
+            }
+        }
     }
 }
