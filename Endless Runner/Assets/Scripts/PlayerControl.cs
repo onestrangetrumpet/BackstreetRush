@@ -66,6 +66,7 @@ public class PlayerControl : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         health -= 1;
+        Debug.Log("e");
 
         if(!gameObject.CompareTag("Ground"))
         {        
