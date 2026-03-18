@@ -7,6 +7,7 @@ public class ObstacleSpawner : MonoBehaviour
     public Transform[] spawners;
     public Obstacle[] obstacles;
     public float spawnRate;
+    public int obstacleCount = 0;
     float timer;
     // Start is called before the first frame update
     void Start()
@@ -23,12 +24,40 @@ public class ObstacleSpawner : MonoBehaviour
         }
         else 
         {
-            foreach(Transform spawner in spawners)
+            SpawnObstacles();
+            timer = spawnRate;
+            obstacleCount += 1;
+        }  
+
+        if (obstacleCount == 10) 
+        {
+            obstacleCount = 0;
+            spawnRate = spawnRate *= 0.9f;  
+        }
+
+        spawnRate = Mathf.Max(spawnRate, 1f);
+    }
+
+    public void SpawnObstacles()
+    {
+        int tallObstacles = 0;
+
+        foreach(Transform spawner in spawners)
+        {
+            if(Random.value > 0.5f)
             {
-                int randNumber = Random.Range(0, obstacles.Length);      
-                Instantiate(obstacles[randNumber], spawner.position, spawner.rotation);
-                timer = spawnRate;
-            }
-        }        
+                int randNumber = 0;
+                if (tallObstacles < 2)
+                {
+                    randNumber = Random.Range(0, obstacles.Length);
+                }
+                randNumber = Random.Range(0, obstacles.Length);      
+                Obstacle newObstacle = Instantiate(obstacles[randNumber], spawner.position, spawner.rotation);
+                if (newObstacle.transform.localScale.y > 1)
+                {
+                    tallObstacles ++;
+                }
+            }     
+        }
     }
 }

@@ -13,6 +13,7 @@ public class PlayerControl : MonoBehaviour
     bool canJump;
     public int health;
     public ParticleSystem playerDie;
+    float move = 3.4f;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,12 +26,12 @@ public class PlayerControl : MonoBehaviour
     {
         if (Input.GetKeyDown("right") && transform.position.x < 1) 
         {
-            targetPosition += transform.right * 3;
+            targetPosition += transform.right * move;
         }
 
         if (Input.GetKeyDown("left") && transform.position.x > -1) 
         {
-            targetPosition -= transform.right* 3;
+            targetPosition -= transform.right* move;
         }
 
         if (Input.GetKeyDown("space") && canJump == true) 
@@ -42,12 +43,12 @@ public class PlayerControl : MonoBehaviour
 
         if (Input.GetKeyDown("d") && transform.position.x < 1) 
         {
-            targetPosition += transform.right * 3;
+            targetPosition += transform.right * move;
         }
 
         if (Input.GetKeyDown("a") && transform.position.x > -1) 
         {
-            targetPosition -= transform.right* 3;
+            targetPosition -= transform.right* move;
         }
         
         if (Input.GetKeyDown("r")) 
