@@ -75,6 +75,7 @@ public class PlayerControl : MonoBehaviour
             {
                 playerDie.Play();
                 Destroy(this.gameObject);
+                Time.timeScale = 0.5f;
             }
         }
     }

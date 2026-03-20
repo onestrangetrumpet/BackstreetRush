@@ -51,11 +51,23 @@ public class ObstacleSpawner : MonoBehaviour
                 {
                     randNumber = Random.Range(0, obstacles.Length);
                 }
-                randNumber = Random.Range(0, obstacles.Length);      
+   
                 Obstacle newObstacle = Instantiate(obstacles[randNumber], spawner.position, spawner.rotation);
-                if (newObstacle.transform.localScale.y > 1)
+
+                if (newObstacle.transform.localScale.y == 3)
                 {
                     tallObstacles ++;
+                    newObstacle.transform.position += new Vector3(0, 2f, 0);
+                }
+
+                if (newObstacle.transform.localScale.y == 2)
+                {
+                    newObstacle.transform.position += new Vector3(0, 1.5f, 0);
+                }
+
+                if (newObstacle.transform.localScale.y == 1.25)
+                {
+                    newObstacle.transform.position += new Vector3(0, 1.125f, 0);
                 }
             }     
         }

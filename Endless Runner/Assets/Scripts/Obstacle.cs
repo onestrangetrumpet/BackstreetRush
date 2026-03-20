@@ -15,5 +15,10 @@ public class Obstacle : MonoBehaviour
     void Update()
     {
         transform.position -= Vector3.forward * moveSpeed * Time.deltaTime;
+        if (transform.position.z < -12)
+        {
+            Destroy(this.gameObject);
+            // Debug.Log("destroyed");
+        }
     }
 }
