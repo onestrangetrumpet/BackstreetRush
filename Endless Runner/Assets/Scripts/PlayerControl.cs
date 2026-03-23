@@ -14,6 +14,10 @@ public class PlayerControl : MonoBehaviour
     public int health;
     public ParticleSystem playerDie;
     float move = 3.4f;
+    public AudioSource JumpSound;
+    public AudioSource MoveSound;
+    public AudioSource DeathSound;
+    public AudioSource DamageSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,16 +30,19 @@ public class PlayerControl : MonoBehaviour
     {
         if (Input.GetKeyDown("right") && transform.position.x < 1) 
         {
+            MoveSound.Play();
             targetPosition += transform.right * move;
         }
 
         if (Input.GetKeyDown("left") && transform.position.x > -1) 
         {
+            MoveSound.Play();
             targetPosition -= transform.right* move;
         }
 
         if (Input.GetKeyDown("space") && canJump == true) 
         {
+            JumpSound.Play();
             Rigidbody rb = GetComponent<Rigidbody>();
             rb.AddForce(Vector3.up * jumpStrength, ForceMode.Impulse);
             canJump = false;
@@ -43,17 +50,14 @@ public class PlayerControl : MonoBehaviour
 
         if (Input.GetKeyDown("d") && transform.position.x < 1) 
         {
+            MoveSound.Play();
             targetPosition += transform.right * move;
         }
 
         if (Input.GetKeyDown("a") && transform.position.x > -1) 
         {
+            MoveSound.Play();
             targetPosition -= transform.right* move;
-        }
-        
-        if (Input.GetKeyDown("r")) 
-        {
-            transform.position = startPosition;
         }
 
         targetPosition = new Vector3(targetPosition.x, transform.position.y, transform.position.z);
@@ -66,6 +70,7 @@ public class PlayerControl : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        DamageSound.Play();
         health -= 1;
         Debug.Log("e");
 
@@ -73,6 +78,7 @@ public class PlayerControl : MonoBehaviour
         {        
             if (health <= 0)
             {
+                DeathSound.Play();
                 playerDie.Play();
                 Destroy(this.gameObject);
                 Time.timeScale = 0.5f;
