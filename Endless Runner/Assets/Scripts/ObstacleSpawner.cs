@@ -6,6 +6,8 @@ public class ObstacleSpawner : MonoBehaviour
 { 
     public Transform[] spawners;
     public Obstacle[] obstacles;
+    public Transform[] envSpawners;
+    public Obstacle[] environments;
     public float spawnRate;
     public int obstacleCount = 0;
     float timer;
@@ -25,6 +27,7 @@ public class ObstacleSpawner : MonoBehaviour
         else 
         {
             SpawnObstacles();
+            SpawnEnvironments();
             timer = spawnRate;
             obstacleCount += 1;
         }  
@@ -70,6 +73,14 @@ public class ObstacleSpawner : MonoBehaviour
                     newObstacle.transform.position += new Vector3(0, 1.125f, 0);
                 }
             }     
+        }
+    }
+
+    public void SpawnEnvironments()
+    {
+        foreach(Transform spawner in envSpawners)
+        {
+            Instantiate(environments[0], spawner.position, spawner.rotation);
         }
     }
 }
