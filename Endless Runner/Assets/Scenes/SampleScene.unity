@@ -6646,12 +6646,12 @@ MonoBehaviour:
   - {fileID: 1361550854404898159, guid: b4ac7dc0f8226b549bf6bf3c2392cb44, type: 3}
   - {fileID: 8120699151440568215, guid: 70520258a63cab0449d864bae89c2799, type: 3}
   envSpawners:
-  - {fileID: 1733639926}
   - {fileID: 2015993422}
+  - {fileID: 1733639926}
   environments:
-  - {fileID: 900908880361063519, guid: 1f8446e53cbec9244938be1e7e2eb359, type: 3}
-  - {fileID: 3598319866860348329, guid: 487ab52b254ca1e48aafb8d588642131, type: 3}
-  spawnRate: 1.75
+  - {fileID: 4966546241608661581, guid: 4e7b7b5c8d0eab7469b4662c910fc09b, type: 3}
+  - {fileID: 3111353783316495494, guid: caa5f87b50005b44ab5ba35e4476250d, type: 3}
+  spawnRate: 1
   obstacleCount: 0
 --- !u!1 &832575517
 GameObject:
@@ -8135,7 +8135,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1733639926}
   m_Layer: 0
-  m_Name: Spawner
+  m_Name: Right Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -8150,7 +8150,7 @@ Transform:
   m_GameObject: {fileID: 1733639925}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.5, y: -0.5, z: 50}
+  m_LocalPosition: {x: 10.2, y: 0.5, z: 50}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8166,7 +8166,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2015993422}
   m_Layer: 0
-  m_Name: Spawner (1)
+  m_Name: Left Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -8180,13 +8180,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2015993421}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.5, y: -0.5, z: 50}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -10.2, y: 0.5, z: 50}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 244247622}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &2147209467
 GameObject:
   m_ObjectHideFlags: 0

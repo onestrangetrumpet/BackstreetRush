@@ -80,7 +80,8 @@ public class ObstacleSpawner : MonoBehaviour
     {
         foreach(Transform spawner in envSpawners)
         {
-            Instantiate(environments[0], spawner.position, spawner.rotation);
+            int randNumber = Random.Range(0, environments.Length);
+            Instantiate(environments[randNumber], spawner.position, spawner.rotation);
         }
     }
 }
