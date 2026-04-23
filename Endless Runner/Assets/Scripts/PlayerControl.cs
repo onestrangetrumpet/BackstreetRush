@@ -18,6 +18,8 @@ public class PlayerControl : MonoBehaviour
     public AudioSource MoveSound;
     public AudioSource DeathSound;
     public AudioSource DamageSound;
+    public GameObject Restart;
+    public bool dead;
     // Start is called before the first frame update
     void Start()
     {
@@ -76,13 +78,37 @@ public class PlayerControl : MonoBehaviour
 
         if(!gameObject.CompareTag("Ground"))
         {        
-            if (health <= 0)
+            Dead();
+        }
+    }
+    void Dead() 
+    {
+        if (health <= 0)
             {
+                dead = true;
                 DeathSound.Play();
                 playerDie.Play();
                 Destroy(this.gameObject);
                 Time.timeScale = 0.5f;
+                RestartButton();
             }
+    }
+
+    public bool CheckDead()
+    {
+        if (health <= 0)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    void RestartButton()
+    {
+        if(FindObjectOfType<GameManager>().CheckPlayer())
+        {
+            Restart.SetActive(true);
         }
     }
 }
