@@ -38,7 +38,7 @@ public class ObstacleSpawner : MonoBehaviour
             spawnRate = spawnRate *= 0.9f;  
         }
 
-        spawnRate = Mathf.Max(spawnRate, 1f);
+        spawnRate = Mathf.Max(spawnRate, 1.2f);
     }
 
     public void SpawnObstacles()
