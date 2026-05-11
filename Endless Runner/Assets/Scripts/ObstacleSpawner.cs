@@ -57,20 +57,21 @@ public class ObstacleSpawner : MonoBehaviour
    
                 Obstacle newObstacle = Instantiate(obstacles[randNumber], spawner.position, spawner.rotation);
 
-                if (newObstacle.transform.localScale.y == 3)
+                if (newObstacle.transform.localScale.y == 2.25 && tallObstacles < 2)
                 {
+                    Debug.Log("AHHHHHH");
                     tallObstacles ++;
-                    newObstacle.transform.position += new Vector3(0, 2f, 0);
+                    newObstacle.transform.position += new Vector3(0, 7.5f, 0);
                 }
 
                 if (newObstacle.transform.localScale.y == 2)
                 {
-                    newObstacle.transform.position += new Vector3(0, 1.5f, 0);
+                    newObstacle.transform.position += new Vector3(0, 7.5f, 0);
                 }
 
-                if (newObstacle.transform.localScale.y == 1.25)
+                if (newObstacle.transform.localScale.y == 1.75)
                 {
-                    newObstacle.transform.position += new Vector3(0, 1.125f, 0);
+                    newObstacle.transform.position += new Vector3(0, 7.5f, 0);
                 }
             }     
         }
