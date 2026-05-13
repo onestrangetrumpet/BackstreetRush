@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class PlayerControl : MonoBehaviour
     public AudioSource DamageSound;
     public GameObject Restart;
     public bool dead;
+    public TextMeshProUGUI healthText;
     // Start is called before the first frame update
     void Start()
     {
@@ -64,6 +66,8 @@ public class PlayerControl : MonoBehaviour
 
         targetPosition = new Vector3(targetPosition.x, transform.position.y, transform.position.z);
         transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, duration);
+
+        healthText.text = health.ToString();
     }
 
     private void OnCollisionEnter(Collision collision)
