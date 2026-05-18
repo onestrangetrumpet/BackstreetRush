@@ -22,13 +22,11 @@ public class PlayerControl : MonoBehaviour
     public GameObject Restart;
     public bool dead;
     public TextMeshProUGUI healthText;
-    public Animator anim;
     // Start is called before the first frame update
     void Start()
     {
         health = 3;
         startPosition = new Vector3(0, 1.25f, -1);
-        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -52,7 +50,6 @@ public class PlayerControl : MonoBehaviour
             Rigidbody rb = GetComponent<Rigidbody>();
             rb.AddForce(Vector3.up * jumpStrength, ForceMode.Impulse);
             canJump = false;
-            anim.Play("Jump Spin");
         }
 
         if (Input.GetKeyDown("d") && transform.position.x < 1) 

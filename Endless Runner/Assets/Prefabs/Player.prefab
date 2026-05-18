@@ -921,7 +921,6 @@ MonoBehaviour:
   Restart: {fileID: 0}
   dead: 0
   healthText: {fileID: 0}
-  anim: {fileID: 0}
 --- !u!95 &1614357433800339182
 Animator:
   serializedVersion: 5
